@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center mt-5">
+  <div class="col-6 d-flex flex-column align-items-center text-center gap-3">
+
+    <h1>Edit Task</h1>
+    <%= form_with  model: @task do |f| %>
+    <div class="mb-3">
+      <%= f.label :title, class: "form-label" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :details, class: "form-label" %>
+      <%= f.text_field :details, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.check_box :completed, class: "form-check-input" %>
+      <%= f.label :completed, "completed ?", class: "form-check-label" %>
+    </div>
+
+
+
+      <%= f.submit "🚀 update", class:"btn btn-primary" %>
+    <% end %>
+
+
+    <div class="goback w-50">
+      <div> <%= link_to "↩️ back to tasks", tasks_path, class: "btn btn-primary" %></div>
+    </div>
+
+  </div>
+
+</div>

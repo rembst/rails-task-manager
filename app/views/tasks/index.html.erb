@@ -1,0 +1,26 @@
+<div class="container d-flex justify-content-center mt-5">
+  <div class="col-6 d-flex flex-column align-items-center text-center gap-1">
+
+    <h1>Tasks list</h1>
+
+    <div class="tasks-cards w-50">
+
+      <ul class="list-unstyled py-1">
+
+        <% @tasks.each do |task|%>
+          <li>
+            <input class="my-3" type="checkbox" <%= 'checked' if task.completed %>>
+            <%= link_to "#{task.title}", task_path(task) %>
+          </li>
+        <% end %>
+
+      </ul>
+
+    </div>
+
+    <hr class="mb-4 border-top border-1 border-dark mx-auto" style="width: 50%;">
+
+    <%= link_to "🧾 add a task to the list", new_path, class: "btn btn-primary" %>
+
+  </div>
+</div>

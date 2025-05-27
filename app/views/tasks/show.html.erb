@@ -1,0 +1,40 @@
+<div class="container d-flex justify-content-center mt-5">
+  <div class="col-8 d-flex flex-column align-items-center text-center gap-3">
+
+    <h1><%= @task.title %></h1>
+
+    <div class="card task-details w-50 py-3">
+        <div><%= @task.details %></div>
+    </div>
+
+    <div class=" completed w-50">
+      <input type="checkbox" <%= 'checked' if @task.completed %>>
+      this task is <%= @task.completed ? "completed" : "not completed yet"%>
+    </div>
+
+    <div class="col-8 d-flex ">
+        <div class="edit w-50">
+          <div> <%= link_to "✏️ edit this task", edit_path, class: "btn btn-secondary" %></div>
+        </div>
+
+        <div class="goback w-50">
+          <div> <%= link_to "↩️ back to tasks", tasks_path, class: "btn btn-primary" %></div>
+        </div>
+
+        <div class="delete w-50">
+          <div> <%= link_to "❌ delete",
+            task_path(@task),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+            class: "btn btn-danger"
+          %></div>
+        </div>
+
+    </div>
+
+
+
+
+
+  </div>
+
+</div>
